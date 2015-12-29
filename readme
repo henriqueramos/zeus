@@ -1,0 +1,10 @@
+Zeus Monitor
+===================
+
+[TOC]
+
+Inicialmente desenvolvido entre os dias 18 e 20 de Outubro de 2015. Permite de forma visual verificar várias integrações com serviços externos através de arquivos .php chamados em um CRON.
+
+Para ser usado dentro da intranet da empresa onde trabalho.
+
+----------

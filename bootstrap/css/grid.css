@@ -1,0 +1,206 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+h4 {
+  margin-top: 25px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+} 
+
+.stage > [class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 10px 0px 10px 0px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #000;
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.navbar{
+	background-color:#9100a2;
+}
+
+.badge a{
+	color:#fff;
+	font-weight:bold;
+	font-size:2em;
+}
+
+ul.navbar-nav li a{
+	color:#fff;
+	font-weight:bold;
+}
+
+ul.navbar-nav li.active-item{
+	background-color:#fff;
+	font-weight:bold;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  font-weight:bold;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #333;
+  background-color: #fff;
+}
+
+.block_jobs_group{
+	/*
+	 */
+	display:none; 
+}
+
+.alert_via_email{
+	display:none;
+}
+
+.redAlert{
+	background-color: #ff0000 !important;
+	color:#ffffff;
+	font-weight:bold;
+	border: 1px solid #000;
+}
+
+.greenAlert{
+	background-color: #00FF00 !important;
+	border: 1px solid #000;
+}
+
+.greyAlert{
+	background-color: #666 !important;
+	border: 1px solid #000;
+}
+
+h3.jobTitle a,
+.redAlert h3.jobTitle a,
+.greenAlert h3.jobTitle .badge a{
+	color:#fff !important;
+	font-weight:bold;
+}
+
+.greenAlert h3.jobTitle a{
+	color:#000 !important;
+	font-weight:bold;
+}
+
+#infoJobs{
+	display:none;
+}
+
+/**
+ * Modal Header Colored
+ **/
+.modal-header-success {
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #5cb85c;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-warning {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #f0ad4e;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-danger {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #d9534f;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-info {
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #5bc0de;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-primary {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #428bca;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+
+/* scroll fixes */
+.modal-open .modal {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  overflow-y: scroll;
+}
+
+.alert_message_popup_email, .alert_via_email, .alert_via_sound, .alert_via_blink{
+	display:none;
+}
+
+.alert_group{
+	/*border:2px dashed #ff0000;
+	padding:1em;
+	margin-bottom:2em;*/
+}
+
+/** More info at http://zurb.com/playground/radioactive-buttons **/
+@-webkit-keyframes redPulse{
+	from{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#e33100;-webkit-box-shadow:0 0 18px #e33100;}to{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}
+}
+.glowingDanger{
+	-webkit-animation-name:redPulse;
+	-webkit-animation-duration:1s;
+	-webkit-animation-iteration-count: infinite;
+}

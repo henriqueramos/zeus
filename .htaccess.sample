@@ -1,0 +1,13 @@
+php_value error_log  logs/php_errors.log
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /zeus/
+	
+	RewriteRule ^(tmp)\/|\.ini$ - [R=404]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-l
+	
+	RewriteRule .* index.php [L,QSA]
+</IfModule>

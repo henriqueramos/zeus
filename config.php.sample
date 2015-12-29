@@ -1,0 +1,87 @@
+<?php
+
+/** Namespaces **/
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+/** Habilita a exibição de erros dos scripts. Após o período de testes, setar o E_ALL para 0 (Zero) */
+error_reporting(E_ALL);
+
+/** Seta o tempo máximo de execução para 0 (zero), ou seja, desabilita o tempo máximo. */
+set_time_limit(0);
+
+/** @var string $host Servidor do banco de dados  */
+$host = "localhost";
+/** @var string $user Usuário do banco de dados  */
+$user = "root";
+/** @var string $pass Senha do banco de dados  */
+$pass = "";
+/** @var string $db Nome do banco de dados  */
+$db   = "zeus";
+/** @var string $type Tipo de banco de dados  */
+$type = "mysql";
+
+/** Configurando conexão com o banco de dados para operações fora do OAuth **/
+
+$connectDB = new PDO($type.":host=".$host.";dbname=".$db, $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+$connectDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+
+/** Framework F3 **/
+
+$f3 = require_once("lib/base.php");
+$f3->set('DEBUG', 3);
+
+/** Composer **/
+require_once("vendor/autoload.php");
+
+/** Functions **/
+
+require_once("functions.php");
+define('LOG_FOLDER', __DIR__."/logs");
+
+define('Zeus_Monitor_Log_Path', LOG_FOLDER."/Zeus_Cron.log");
+
+define('ExternalCrawlerPath', realpath("callingExternal.php"));
+define('InternalCrawlerPath', realpath("callingInternal.php"));
+
+/** Logger **/
+
+$logger = new Logger('Zeus_Monitor');
+$logger->pushHandler(new StreamHandler(LOG_FOLDER."/Zeus_Monitor.log"));
+
+/** Smarty **/
+
+$Smarty = new Smarty(); 
+
+$Smarty->compile_check = true;
+$Smarty->debugging = false;
+$Smarty->caching = false;
+
+$Smarty->template_dir = "templates";
+$Smarty->compile_dir = "templates_c";
+
+$urlDomain = "http://localhost/zeus/";
+
+$urlDomain = rtrim($urlDomain, "/\t\n\r");
+
+$Smarty->assign('url', $urlDomain);
+
+$Smarty->addPluginsDir('./plugins');
+
+$javascriptHeaderFiles = array();
+
+$javascriptHeaderFiles[] = array('url'=>"//code.jquery.com/jquery-2.1.4.js");
+$javascriptHeaderFiles[] = array('url'=>"{$urlDomain}/bootstrap/js/bootstrap.js");
+$javascriptHeaderFiles[] = array('url'=>"{$urlDomain}/js/js.cookie.js");
+$javascriptHeaderFiles[] = array('url'=>"{$urlDomain}/js/homeFunctions.js");
+$javascriptHeaderFiles[] = array('url'=>"{$urlDomain}/js/popupWarning.js");
+
+$javascriptHeaderCodes = array();
+
+$javascriptHeaderCodes[] = "\$(\"#saveConfigs\").on(\"click\", function(){Cookies.set('refresh_rate', \$(\"#refresh_rate\").val());\$('#configModal').modal('hide');});";
+$javascriptHeaderCodes[] = "\$(\"#configModal\").on('show.bs.modal', function(){\$(\"#refresh_rate\").val(Cookies.get('refresh_rate'));});";
+
+$Smarty->assign('javascriptHeaderFiles', $javascriptHeaderFiles);
+$Smarty->assign('javascriptHeaderCodes', $javascriptHeaderCodes);
+
+?>

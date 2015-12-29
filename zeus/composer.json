@@ -1,0 +1,26 @@
+{
+    "name": "ramos/zeus",
+    "description": "Monitor PHP customizável - Desenvolvido para auxiliar o time da Intercase <intercase.com.br>",
+	"version": "1.0",
+    "keywords": ["monitor", "cron", "curl", "integration"],
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henrique Ramos",
+            "email": "hramos@live.de",
+            "homepage": "http://www.henriqueramos.eti.br"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+		"guzzle/guzzle": ">=3.9",
+        "monolog/monolog": ">=1.17",
+		"smarty/smarty": ">=3.1",
+        "mtdowling/cron-expression": "dev-master",
+        "mybuilder/cronos": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Ramos\\Zeus": "src" }
+    }
+}

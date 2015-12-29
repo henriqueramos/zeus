@@ -1,0 +1,6 @@
+vendor/*
+logs/
+templates_c
+composer.lock
+config.php
+.htaccess
